@@ -20,5 +20,8 @@ public class CsvProcessor implements Processor {
 
     System.out.println(String.format("CSV file contains %d lines, average price=%.2f", body.size(), average.getAsDouble()));
 
+    // Save the average on the message header.. avoids creation of pojo to hold a tuple
+    message.setHeader("average-price", average);
+
   }
 }

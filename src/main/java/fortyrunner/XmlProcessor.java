@@ -4,7 +4,7 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 
 /**
- * Created by john on 04/10/2014.
+ * At the moment... doesn't do any XML processing.. but it could do
  */
 public class XmlProcessor implements org.apache.camel.Processor {
   @Override

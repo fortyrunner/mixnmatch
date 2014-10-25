@@ -1,10 +1,16 @@
 package fortyrunner;
 
+
 import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
 import org.apache.camel.dataformat.bindy.annotation.DataField;
 
+import java.io.Serializable;
+
+/**
+ * Annotaed class that matches the CSV format of our House Prices file
+ */
 @CsvRecord(separator = ",", crlf = "UNIX", skipFirstLine = true)
-public class HouseInfo {
+public class HouseInfo implements Serializable {
 
   @DataField(pos = 1)
   private String date;
@@ -41,4 +47,7 @@ public class HouseInfo {
   }
 
 
+  public String getKey() {
+    return toCSV();
+  }
 }

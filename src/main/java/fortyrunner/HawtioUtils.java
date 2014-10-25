@@ -6,8 +6,9 @@ import io.hawt.embedded.Main;
 import java.net.URL;
 
 /**
- * Find the hawtio utils in teh class path and start it up.
+ * Find the hawtio utils in the class path and start it up.
  * Uses default port 8080 unless overridden
+ * Turn authentication off for npw
  */
 public class HawtioUtils {
 

@@ -16,6 +16,7 @@ public class MainApp {
    */
   public static void main(String... args) throws Exception {
     CamelContext context = new DefaultCamelContext();
+
     context.addRoutePolicyFactory(new MetricsRoutePolicyFactory());
     context.addRoutes(new DataFlow());
     context.startAllRoutes();
