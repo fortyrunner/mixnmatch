@@ -11,12 +11,35 @@
 
   <name>Simple demo of Camel and Hawtio</name>
 
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven-compiler-plugin.source>1.8</maven-compiler-plugin.source>
+    <maven-compiler-plugin.target>1.8</maven-compiler-plugin.target>
+
+    <dropwizard.version>0.7.1</dropwizard.version>
     <camel.version>2.14.0</camel.version>
-    <hawtio.version>1.4.21</hawtio.version>
+    <springframework.version>4.1.2.RELEASE</springframework.version>
+    <springbatch.version>3.0.2.RELEASE</springbatch.version>
+    <springdata.neo4j.version>3.2.1.RELEASE</springdata.neo4j.version>
+
+    <guava.version>18.0</guava.version>
+    <joda-time.version>2.5</joda-time.version>
+    <jxl.version>2.6.12</jxl.version>
+    <blizt4j.version>1.23</blizt4j.version>
+    <jstl.version>1.2</jstl.version>
+
+    <neo4j.version>2.1.5</neo4j.version>
+    <hazelcast.version>3.3.3</hazelcast.version>
+
+    <hawtio.version>1.4.30</hawtio.version>
+    <jolokia.version>1.2.2</jolokia.version>
+    <slf4j-api.version>1.7.7</slf4j-api.version>
+    <log4j.version>2.1</log4j.version>
+
+    <mockito.version>1.9.5</mockito.version>
+    <junit.version>4.11</junit.version>
   </properties>
 
   <dependencies>
@@ -52,28 +75,36 @@
     </dependency>
 
     <dependency>
-        <groupId>org.apache.camel</groupId>
-        <artifactId>camel-hazelcast</artifactId>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-hazelcast</artifactId>
       <version>${camel.version}</version>
     </dependency>
 
     <dependency>
       <groupId>com.hazelcast</groupId>
       <artifactId>hazelcast</artifactId>
-      <version>3.3.1</version>
+      <version>${hazelcast.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava.version}</version>
     </dependency>
 
     <!-- logging -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.7</version>
+      <version>${slf4j-api.version}</version>
     </dependency>
+
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.7</version>
+      <version>${slf4j-api.version}</version>
     </dependency>
+
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
@@ -87,10 +118,7 @@
       <version>${camel.version}</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-    </dependency>
+
 
   </dependencies>
 
@@ -103,8 +131,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.5.1</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>${maven-compiler-plugin.source}</source>
+          <target>${maven-compiler-plugin.target}</target>
         </configuration>
       </plugin>
       <plugin>
@@ -112,7 +140,7 @@
         <artifactId>maven-resources-plugin</artifactId>
         <version>2.6</version>
         <configuration>
-          <encoding>UTF-8</encoding>
+          <encoding>${project.build.sourceEncoding}</encoding>
         </configuration>
       </plugin>
 

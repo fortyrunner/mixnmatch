@@ -13,7 +13,7 @@ import java.net.URL;
 public class HawtioUtils {
 
 
-  private boolean enableAuthentication;
+  private final boolean enableAuthentication;
 
   private int port = 8080;
 
@@ -21,7 +21,7 @@ public class HawtioUtils {
     this.enableAuthentication = enableAuthentication;
   }
 
-  public void setPort(final int value){
+  public void setPort(final int value) {
     Preconditions.checkArgument(value >= 8080);
     this.port = value;
   }

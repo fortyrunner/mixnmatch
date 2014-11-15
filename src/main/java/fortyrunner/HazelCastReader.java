@@ -22,7 +22,7 @@ public class HazelCastReader implements Processor {
     Map<String, HouseInfo> map = instance.getMap("customers");
 
     long count = map.values().stream().filter(price -> price.getPrice() > 100000).count();
-    System.out.println("Cache elements with price > 100,000 = "+ count);
+    System.out.println("Cache elements with price > 100,000 = " + count);
 
 
   }

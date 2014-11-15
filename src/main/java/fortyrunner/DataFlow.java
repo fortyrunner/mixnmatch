@@ -16,7 +16,6 @@ import org.apache.camel.model.dataformat.CsvDataFormat;
  * <li>Recombine output of CSV and XML parsing onto a new queue</li>
  * <li>Implement (non-transactional) persistence by multi-casting the output to (dummy) end points </li>
  * </ol>
- *
  */
 public class DataFlow extends RouteBuilder {
   /**

@@ -14,7 +14,7 @@ public class CsvProcessor implements Processor {
   public void process(final Exchange exchange) throws Exception {
     Message message = exchange.getIn();
 
-    List<HouseInfo> body = (List<HouseInfo>)message.getBody();
+    List<HouseInfo> body = (List<HouseInfo>) message.getBody();
 
     OptionalDouble average = body.stream().mapToDouble(HouseInfo::getPrice).average();
 

@@ -12,9 +12,9 @@ import java.util.OptionalDouble;
  */
 public class HazelCastProcessor implements org.apache.camel.Processor {
 
-  private HazelcastInstance hazelCast;
+  private final HazelcastInstance hazelCast;
 
-  public HazelCastProcessor(final HazelcastInstance hazelCast){
+  public HazelCastProcessor(final HazelcastInstance hazelCast) {
     this.hazelCast = hazelCast;
   }
 

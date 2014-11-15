@@ -7,7 +7,7 @@ import org.apache.camel.dataformat.bindy.annotation.DataField;
 import java.io.Serializable;
 
 /**
- * Annotaed class that matches the CSV format of our House Prices file
+ * Annotated class that matches the CSV format of our House Prices file
  */
 @CsvRecord(separator = ",", crlf = "UNIX", skipFirstLine = true)
 public class HouseInfo implements Serializable {
@@ -18,7 +18,7 @@ public class HouseInfo implements Serializable {
   @DataField(pos = 2)
   private String name;
 
-  @DataField(name="Average_Price_SA", pos = 3)
+  @DataField(name = "Average_Price_SA", pos = 3)
   private double price;
 
   public double getPrice() {
