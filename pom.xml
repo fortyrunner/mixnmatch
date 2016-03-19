@@ -18,27 +18,28 @@
     <maven-compiler-plugin.source>1.8</maven-compiler-plugin.source>
     <maven-compiler-plugin.target>1.8</maven-compiler-plugin.target>
 
-    <dropwizard.version>0.7.1</dropwizard.version>
-    <camel.version>2.14.0</camel.version>
-    <springframework.version>4.1.2.RELEASE</springframework.version>
-    <springbatch.version>3.0.2.RELEASE</springbatch.version>
-    <springdata.neo4j.version>3.2.1.RELEASE</springdata.neo4j.version>
+    <dropwizard.version>0.9.2</dropwizard.version>
+    <metrics.version>3.1.1</metrics.version>
+    <camel.version>2.16.2</camel.version>
+    <springframework.version>4.2.5.RELEASE</springframework.version>
+    <springbatch.version>3.0.6.RELEASE</springbatch.version>
+    <springdata.neo4j.version>3.4.4.RELEASE</springdata.neo4j.version>
 
-    <guava.version>18.0</guava.version>
-    <joda-time.version>2.5</joda-time.version>
+    <guava.version>19.0</guava.version>
+    <joda-time.version>2.9.2</joda-time.version>
     <jxl.version>2.6.12</jxl.version>
-    <blizt4j.version>1.23</blizt4j.version>
+    <blizt4j.version>1.36</blizt4j.version>
     <jstl.version>1.2</jstl.version>
 
-    <neo4j.version>2.1.5</neo4j.version>
-    <hazelcast.version>3.3.3</hazelcast.version>
+    <neo4j.version>2.3.2</neo4j.version>
+    <hazelcast.version>3.6.1</hazelcast.version>
 
-    <hawtio.version>1.4.30</hawtio.version>
-    <jolokia.version>1.2.2</jolokia.version>
-    <slf4j-api.version>1.7.7</slf4j-api.version>
-    <log4j.version>2.1</log4j.version>
+    <hawtio.version>1.4.63</hawtio.version>
+    <jolokia.version>1.23.3</jolokia.version>
+    <slf4j-api.version>1.7.19</slf4j-api.version>
+    <log4j.version>2.5</log4j.version>
 
-    <mockito.version>1.9.5</mockito.version>
+    <mockito.version>1.10.19</mockito.version>
     <junit.version>4.11</junit.version>
   </properties>
 
@@ -118,7 +119,11 @@
       <version>${camel.version}</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>io.dropwizard.metrics</groupId>
+      <artifactId>metrics-core</artifactId>
+      <version>${metrics.version}</version>
+    </dependency>
 
   </dependencies>
 

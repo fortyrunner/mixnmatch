@@ -24,7 +24,7 @@ public class DataFlow extends RouteBuilder {
   public void configure() {
 
     CsvDataFormat csv = new CsvDataFormat();
-    csv.setSkipFirstLine(true);
+    csv.setSkipHeaderRecord(true);
 
     // here is a sample which processes the input files
     // (leaving them in place - see the 'noop' flag)
