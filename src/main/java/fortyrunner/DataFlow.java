@@ -1,9 +1,6 @@
 package fortyrunner;
 
 
-import com.hazelcast.config.Config;
-import com.hazelcast.core.Hazelcast;
-import com.hazelcast.core.HazelcastInstance;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.dataformat.BindyType;
 import org.apache.camel.model.dataformat.CsvDataFormat;
@@ -60,19 +57,12 @@ public class DataFlow extends RouteBuilder {
       log("Replicate to Database, cache and backup cache").
       multicast().
       to("mock:database").
-      to("seda:cache").
+      to("direct:hollow").
       to("mock:backup-cache");
 
 
-    Config cfg = new Config();
-    HazelcastInstance instance = Hazelcast.newHazelcastInstance(cfg);
 
-    // Save in a Hazelcast cache and then print the cache contents
-
-    from("seda:cache").process(new HazelCastProcessor(instance)).to("seda:check-cache");
-
-    from("seda:check-cache").process(new HazelCastReader(instance)).end();
-
+    from("direct:hollow").process(new HollowProcessor()).end();
 
   }
 }

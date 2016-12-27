@@ -3,6 +3,7 @@ package fortyrunner;
 import org.apache.camel.CamelContext;
 import org.apache.camel.component.metrics.routepolicy.MetricsRoutePolicyFactory;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.main.Main;
 
 /**
  * A simple Camel Application to demonstrate Hawtio and CSV/XML parsing
@@ -22,8 +23,9 @@ public class MainApp {
     context.startAllRoutes();
     context.start();
 
-    HawtioUtils utils = new HawtioUtils(false);
-    utils.startHawtio();
+    Main main = new Main();
+    main.run();
+
   }
 
 

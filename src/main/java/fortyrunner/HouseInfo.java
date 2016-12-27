@@ -1,6 +1,7 @@
 package fortyrunner;
 
 
+import com.google.common.base.MoreObjects;
 import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
 import org.apache.camel.dataformat.bindy.annotation.DataField;
 
@@ -8,6 +9,7 @@ import java.io.Serializable;
 
 /**
  * Annotated class that matches the CSV format of our House Prices file
+ * Date,Region_Name,Average_Price,Monthly_Change,Annual_Change,Average_Price_SA
  */
 @CsvRecord(separator = ",", crlf = "UNIX", skipFirstLine = true)
 public class HouseInfo implements Serializable {
@@ -18,11 +20,22 @@ public class HouseInfo implements Serializable {
   @DataField(pos = 2)
   private String name;
 
-  @DataField(name = "Average_Price_SA", pos = 3)
+  @DataField(name = "Average_Price", pos = 3)
   private double price;
 
+  @DataField(name = "Monthly_Change", pos = 4)
+  private double monthlyChange;
+
+  @DataField(name = "Annual_Change", pos = 5)
+  private double annualChange;
+
+  // Seasonally adjusted
+  @DataField(name = "Average_Price_SA", pos = 6)
+  private double averagePriceSAChange;
+
+
   public double getPrice() {
-    return this.price;
+    return price;
   }
 
   public String getName() {
@@ -30,16 +43,31 @@ public class HouseInfo implements Serializable {
   }
 
   public String getDate() {
-    return this.date;
+    return date;
+  }
+
+  public double getMonthlyChange() {
+    return monthlyChange;
+  }
+
+  public double getAnnualChange() {
+    return annualChange;
+  }
+
+  public double getAveragePriceSAChange() {
+    return averagePriceSAChange;
   }
 
   @Override
   public String toString() {
-    return "HouseInfo " +
-      "name='" + this.name + '\'' +
-      ", date=" + this.date +
-      ", price=" + this.price +
-      '}';
+    return MoreObjects.toStringHelper(this)
+      .add("date", date)
+      .add("name", name)
+      .add("price", price)
+      .add("monthlyChange", monthlyChange)
+      .add("annualChange", annualChange)
+      .add("averagePriceSAChange", averagePriceSAChange)
+      .toString();
   }
 
   public String toCSV() {

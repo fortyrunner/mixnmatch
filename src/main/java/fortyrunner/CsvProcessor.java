@@ -1,27 +1,28 @@
 package fortyrunner;
 
 import org.apache.camel.Exchange;
-import org.apache.camel.Message;
-import org.apache.camel.Processor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.OptionalDouble;
 
 
-public class CsvProcessor implements Processor {
+public class CsvProcessor implements HousePriceProcessor {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(CsvProcessor.class);
 
   @Override
   public void process(final Exchange exchange) throws Exception {
-    Message message = exchange.getIn();
 
-    List<HouseInfo> body = (List<HouseInfo>) message.getBody();
+    List<HouseInfo> housePrices = HousePriceProcessor.getPrices(exchange);
 
-    OptionalDouble average = body.stream().mapToDouble(HouseInfo::getPrice).average();
+    OptionalDouble average = housePrices.stream().mapToDouble(HouseInfo::getPrice).average();
 
-    System.out.println(String.format("CSV file contains %d lines, average price=%.2f", body.size(), average.getAsDouble()));
+    LOGGER.info("CSV file contains {} lines, average price={}", housePrices.size(), average.getAsDouble());
 
     // Save the average on the message header.. avoids creation of pojo to hold a tuple
-    message.setHeader("average-price", average);
+    exchange.getIn().setHeader("average-price", average);
 
   }
 }
