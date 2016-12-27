@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * At the moment... doesn't do any XML processing.. but it could do
+ * At the moment... doesn't do any XML processing.. but it could do.
  */
 public class XmlProcessor implements Processor {
 
