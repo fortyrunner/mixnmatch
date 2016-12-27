@@ -13,7 +13,6 @@ public interface HousePriceProcessor extends Processor {
     Message message = exchange.getIn();
 
     return (List<HouseInfo>) message.getBody();
-
   }
 
 }

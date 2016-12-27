@@ -22,6 +22,7 @@ public class CsvProcessor implements HousePriceProcessor {
     LOGGER.info("CSV file contains {} lines, average price={}", housePrices.size(), average.getAsDouble());
 
     // Save the average on the message header.. avoids creation of pojo to hold a tuple
+
     exchange.getIn().setHeader("average-price", average);
 
   }

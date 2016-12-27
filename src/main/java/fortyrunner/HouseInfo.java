@@ -10,6 +10,7 @@ import java.io.Serializable;
 /**
  * Annotated class that matches the CSV format of our House Prices file
  * Date,Region_Name,Average_Price,Monthly_Change,Annual_Change,Average_Price_SA
+ *
  */
 @CsvRecord(separator = ",", crlf = "UNIX", skipFirstLine = true)
 public class HouseInfo implements Serializable {

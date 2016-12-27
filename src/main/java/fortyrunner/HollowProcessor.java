@@ -40,7 +40,6 @@ public class HollowProcessor implements HousePriceProcessor {
 
     } catch (Exception ex) {
 
-
     }
   }
 
